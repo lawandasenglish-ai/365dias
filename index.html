@@ -579,7 +579,14 @@ body::after{content:'';position:fixed;bottom:-80px;left:-60px;width:280px;height
         <button class="btn-primary" onclick="finAddMeta()">+ Adicionar meta</button>
       </div>
     </div>
-  </div>
+  
+    <div style="margin-top:30px;text-align:center;">
+      <button onclick="resetAppData()" style="background:none;border:2px solid var(--blush);border-radius:14px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text-light);cursor:pointer;">
+        🔄 Resetar dados do app
+      </button>
+      <p style="font-size:11px;color:var(--text-light);margin-top:8px;">Use se os ícones não aparecerem</p>
+    </div>
+</div>
 </div>
 
 <!-- NAV -->
@@ -1154,6 +1161,15 @@ function celebrate(imgKey, text, sub) {
   document.getElementById('celebration').classList.add('show');
   document.getElementById('cel-overlay').classList.add('show');
   setTimeout(closeCelebration, 2200);
+}
+
+
+function resetAppData() {
+  if (confirm('Isso vai limpar os dados locais e recarregar. Seus dados no Supabase ficam salvos. Continuar?')) {
+    localStorage.removeItem('lawanda365v4');
+    localStorage.removeItem('lawanda_fin_v3');
+    location.reload();
+  }
 }
 
 function closeCelebration() {
